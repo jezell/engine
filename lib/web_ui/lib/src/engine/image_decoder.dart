@@ -392,7 +392,7 @@ class ResizingCodec implements ui.Codec {
   int get repetitionCount => delegate.frameCount;
 }
 
-ui.Size? _scaledSize(
+ui.Size? calcScaledSize(
   int width,
   int height,
   int? targetWidth,
@@ -427,7 +427,7 @@ ui.Image scaleImageIfNeeded(
   final int width = image.width;
   final int height = image.height;
   final ui.Size? scaledSize =
-      _scaledSize(width, height, targetWidth, targetHeight);
+      calcScaledSize(width, height, targetWidth, targetHeight);
   if (scaledSize == null) {
     return image;
   }
